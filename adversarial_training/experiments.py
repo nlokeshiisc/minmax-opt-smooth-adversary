@@ -7,7 +7,7 @@ from torch.autograd import Variable
 from torch.utils.data import DataLoader
 from torch.utils.data import sampler
 import time
-import higher
+import higher # This is the library needed for computing higher order gradients
 import torch.backends.cudnn as cudnn
 import torch.nn.functional as F
 import torchvision.datasets as dset
@@ -371,7 +371,7 @@ def load_config(name):
 
 if __name__ == '__main__':
     argparser = argparse.ArgumentParser()
-    argparser.add_argument('--config', type=str, default='pgd')
+    argparser.add_argument('--config', type=str, default='minmax_10_1_no_higher_sgd_100')
     argparser.add_argument('--seed', type=int, default=0)
     argparser.add_argument('--gpu', type=int, default=0)
     args = argparser.parse_args()
